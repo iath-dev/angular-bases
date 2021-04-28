@@ -1,0 +1,19 @@
+<h2>Listado de Heroes</h2>
+
+<div class="px-2 py-1 mb-2 border border-primary rounded" *ngIf="deleted; else noDeleted">
+  <h3>Hero Deleted: <small>{{ deleted }}</small></h3>
+</div>
+
+<ng-template #noDeleted>
+  <h3>No ha borrado nada</h3>
+</ng-template>
+
+<button class="btn btn-outline-primary btn-block mb-2" *ngIf="heroes.length > 0" (click)="deleteHero()">
+  Borrar Hero
+</button>
+
+<ul class="list-group mb-2">
+  <li class="list-group-item" *ngFor="let item of heroes; let i = index">
+    <p class="text-white"><span class="text-primary">{{ i + 1 }} - </span>{{ item }}</p>
+  </li>
+</ul>
