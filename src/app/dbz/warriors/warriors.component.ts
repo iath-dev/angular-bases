@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Warrior } from '../interfaces/dbz.interfaces';
+import { DbzService } from '../services/dbx.service';
 
 @Component({
   selector: 'app-warriors',
   templateUrl: './warriors.component.html',
   styleUrls: ['./warriors.component.sass']
 })
-export class WarriorsComponent implements OnInit {
+export class WarriorsComponent {
 
-  constructor() { }
-
-  ngOnInit(): void {
+  get warriors(): Warrior[] {
+    return this.dbzService.warriors;
   }
 
+  constructor(private dbzService: DbzService) {}
 }

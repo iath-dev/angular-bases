@@ -1,1 +1,7 @@
-<p>warriors works!</p>
+<h3>Personajes</h3>
+<hr>
+<ul class="list-group list-group-flush">
+  <li class="list-group-item text-primary" *ngFor="let w of warriors">
+    {{ w.name }} - <span class="badge badge-primary rounded-pill">{{ w.power | number }}</span>
+  </li>
+</ul>

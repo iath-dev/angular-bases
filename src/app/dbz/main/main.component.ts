@@ -1,9 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-
-interface Warrior {
-  name: string
-  power: number
-}
+import { Component } from '@angular/core';
+import { Warrior } from '../interfaces/dbz.interfaces';
+import { DbzService } from '../services/dbx.service';
 
 @Component({
   selector: 'app-main',
@@ -11,21 +8,12 @@ interface Warrior {
   styleUrls: ['./main.component.sass']
 })
 export class MainComponent {
-
-  warriors: Warrior[] = []
   warrior: Warrior = {
-    name: '',
-    power: 0
+    name: 'Maestro Roshi',
+    power: 15000
   }
 
-  addWarrior() {
-    if (this.warrior.name.trim().length === 0) return;
+  constructor(private dbzService: DbzService) {
 
-    this.warriors.push(this.warrior);
-    this.warrior = {
-      name: '',
-      power: 0
-    }
   }
-
 }
