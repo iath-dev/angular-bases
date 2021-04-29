@@ -1,0 +1,30 @@
+<h1>Dragon Ball Z</h1>
+<hr>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h3>Personajes</h3>
+      <hr>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item text-primary" *ngFor="let w of warriors">
+          {{ w.name }} - <span class="badge badge-primary rounded-pill">{{ w.power | number }}</span>
+        </li>
+      </ul>
+    </div>
+    <div class="col">
+      <h3>Agregar</h3>
+      <hr>
+      <form (ngSubmit)="addWarrior()">
+        <div class="mb-3">
+          <label for="name" class="form-label">Nombre del guerrero</label>
+          <input placeholder="Nombre" name="name" type="text" class="form-control" [(ngModel)]="warrior.name">
+        </div>
+        <div class="mb-3">
+          <label for="power" class="form-label">Nivel de poder</label>
+          <input placeholder="Poder" name="power" type="number" class="form-control" [(ngModel)]="warrior.power">
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Agregar</button>
+      </form>
+    </div>
+  </div>
+</div>
